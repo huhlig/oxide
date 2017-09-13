@@ -1,0 +1,17 @@
+[package]
+name = "oxide"
+version = "0.0.1"
+authors = ["Hans W. Uhlig <hans.uhlig@ibm.com>"]
+
+[features]
+vulkan = ["vulkan"]
+
+[dependencies]
+cgmath = "*"
+image = "*"
+winit = "*"
+time = "*"
+vulkano = "*"
+vulkano-shaders = "*"
+vulkano-shader-derive = "*"
+vulkano-win = "*"
