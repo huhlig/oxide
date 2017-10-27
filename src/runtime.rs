@@ -5,24 +5,15 @@
 
 use state::State;
 
-///
-pub struct Application {
+/// Runtime
+pub struct Runtime {
     state_stack: Vec<Box<State>>
+
 }
 
-///
-pub struct ApplicationBuilder {
-    application_name: String,
-    application_major: u8,
-    application_minor: u8,
-    application_patch: u8,
-    application_frametime: u8,
-    initial_state: Option<Box<State>>,
-}
-
-impl Application {
-    pub fn builder() -> ApplicationBuilder {
-        ApplicationBuilder::default()
+impl Runtime {
+    pub fn builder() -> RuntimeBuilder {
+        RuntimeBuilder::default()
     }
     pub fn run(&mut self) {
         self.initialize();
@@ -31,6 +22,14 @@ impl Application {
     }
     fn initialize(&mut self) {}
     fn shutdown(&mut self) {}
+}
+
+/// Builder for Runtime
+pub struct RuntimeBuilder {
+    application_version: Version,
+    application_name: String,
+    target_frametime: u8,
+    initial_state: Option<Box<State>>,
 }
 
 impl Default for ApplicationBuilder {
