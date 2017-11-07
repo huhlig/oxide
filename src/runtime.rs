@@ -4,6 +4,7 @@
 #![warn(dead_code)]
 
 use state::State;
+use std;
 
 /// Runtime
 pub struct Runtime {
@@ -17,7 +18,13 @@ impl Runtime {
     }
     pub fn run(&mut self) {
         self.initialize();
-        while true {}
+        let frame_start_time = std::time::Instant::now();
+
+        loop {
+            let update_start_time = std::time::Instant::now();
+            let elapsed_frame_time = frame_start_time.elapsed();
+
+        }
         self.shutdown();
     }
     fn initialize(&mut self) {}
